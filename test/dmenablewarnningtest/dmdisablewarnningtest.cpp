@@ -10,7 +10,7 @@ int main( int argc, char* argv[] ) {
     std::vector<int> vecData;
     strtk::parse( "1,2,3,4,5,6,7,8,9", ",", vecData );
 
-    LOG_WARN("{}", strtk::join(vecData, ","));
+    LOG_WARN("{}", strtk::join(",", vecData));
 
     return 0;
 }
