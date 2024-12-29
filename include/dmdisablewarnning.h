@@ -1,4 +1,4 @@
-
+﻿
 // Copyright (c) 2018 brinkqiang (brink.qiang@gmail.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,20 +22,28 @@
 #ifndef __DMDISABLEWARNNING_H_INCLUDE__
 #define __DMDISABLEWARNNING_H_INCLUDE__
 
-#include "dmos.h"
+#ifdef _MSC_VER  // 针对 MSVC 编译器
+    #define DISABLE_ALL_WARNINGS \
+        __pragma(warning(push, 0))
 
-class Idmdisablewarnning
-{
-public:
-    virtual ~Idmdisablewarnning(){}
-    virtual void DMAPI Release(void) = 0;
-	
-    virtual void DMAPI Test(void) = 0;
+#elif defined(__GNUC__) || defined(__clang__)  // 针对 GCC 和 Clang 编译器
+    #define DISABLE_ALL_WARNINGS \
+        _Pragma("GCC diagnostic push") \
+        _Pragma("GCC diagnostic ignored \"-Wall\"") \
+        _Pragma("GCC diagnostic ignored \"-Wextra\"") \
+        _Pragma("GCC diagnostic ignored \"-Wdeprecated\"")  // 你可以根据需要增加其他警告类型
+        
+#endif
 
-	static Idmdisablewarnning* Create();    
-};
+// 恢复警告的宏定义
+#ifdef _MSC_VER  // 针对 MSVC 编译器
+    #define ENABLE_ALL_WARNINGS \
+        __pragma(warning(pop))
 
-Idmdisablewarnning* DMAPI dmdisablewarnningGetModule(){ return Idmdisablewarnning::Create();}
+#elif defined(__GNUC__) || defined(__clang__)  // 针对 GCC 和 Clang 编译器
+    #define ENABLE_ALL_WARNINGS \
+        _Pragma("GCC diagnostic pop")
 
-typedef Idmdisablewarnning* (DMAPI* PFN_dmdisablewarnningGetModule)();
+#endif
+
 #endif // __DMDISABLEWARNNING_H_INCLUDE__
