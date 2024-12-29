@@ -18,18 +18,6 @@
 #define __DMSTRTK_H_INCLUDE__
 #define INCLUDE_STRTK_HPP
 
-#ifdef _MSC_VER
-#pragma warning(push)
-#pragma warning(disable:4996 4615)
-#endif
-
-#ifdef __GNUC__
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#pragma GCC diagnostic ignored "-Wunused-result"
-#endif
-
-
 #include <algorithm>
 #include <cctype>
 #include <cerrno>
@@ -28026,9 +28014,9 @@ namespace strtk {
 			inline double time() const {
 				if (!in_use_) {
 					auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop_time_ - start_time_);
-					return duration.count() * 0.000001; // ×ª»»ÎªÃë
+					return duration.count() * 0.000001; // ×ªï¿½ï¿½Îªï¿½ï¿½
 				}
-				return std::numeric_limits<double>::max(); // Èç¹û¼ÆÊ±Æ÷ÈÔÔÚÔËÐÐ£¬·µ»Ø×î´óÖµ±íÊ¾´íÎó×´Ì¬
+				return std::numeric_limits<double>::max(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½×´Ì¬
 			}
 
 			inline bool in_use() const {
@@ -28087,12 +28075,5 @@ static inline std::string data()
 
 } // namespace strtk
 
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
-
-#ifdef __GNUC__
-#pragma GCC diagnostic pop
-#endif
 
 #endif // __DMSTRTK_H_INCLUDE__
