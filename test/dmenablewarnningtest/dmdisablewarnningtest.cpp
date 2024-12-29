@@ -1,10 +1,8 @@
 
 #include "dmdisablewarnning.h"
 
-DISABLE_ALL_WARNINGS
 #include "dmstrtk.hpp"
 #include "dmlog.hpp"
-ENABLE_ALL_WARNINGS
 
 int main( int argc, char* argv[] ) {
 
