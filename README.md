@@ -24,6 +24,27 @@ Copyright (c) 2013-2018 brinkqiang (brink.qiang@gmail.com)
 ## Intro
 dmdisablewarning
 ```cpp
+
+
+#include "dmdisablewarning.h"
+
+DISABLE_ALL_WARNINGS
+#include "dmstrtk.hpp"
+#include "dmlog.hpp"
+ENABLE_ALL_WARNINGS
+
+int main( int argc, char* argv[] ) {
+
+	DMLOG_INIT();
+	std::vector<int> vecData;
+	strtk::parse("1,2,3,4,5,6,7,8,9", ",", vecData);
+
+	LOG_WARN("{}", strtk::join(",", vecData));
+
+
+    return 0;
+}
+
 ```
 ## Contacts
 
