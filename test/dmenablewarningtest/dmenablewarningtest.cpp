@@ -1,5 +1,5 @@
 
-#include "dmdisablewarnning.h"
+#include "dmdisablewarning.h"
 
 #include "dmstrtk.hpp"
 #include "dmlog.hpp"

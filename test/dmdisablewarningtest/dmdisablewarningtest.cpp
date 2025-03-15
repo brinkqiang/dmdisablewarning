@@ -1,5 +1,5 @@
 
-#include "dmdisablewarnning.h"
+#include "dmdisablewarning.h"
 
 DISABLE_ALL_WARNINGS
 #include "dmstrtk.hpp"
