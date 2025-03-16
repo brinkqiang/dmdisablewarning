@@ -190,7 +190,7 @@ namespace std {
 #include <unistd.h>
 
 #ifndef MAX_PATH
-#define MAX_PATH    PATH_MAX
+#define MAX_PATH    260
 #endif
 #define VSNPRINTF vsnprintf
 #define SleepMs(x) usleep(x*1000)
